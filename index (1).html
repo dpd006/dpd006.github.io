@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Durga Pranati Duvvuri</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #faf9f7;
+    --fg: #1a1a18;
+    --fg-muted: #6b6b65;
+    --fg-faint: #a8a8a2;
+    --accent: #2a5f4a;
+    --accent-light: #e8f2ee;
+    --border: rgba(0,0,0,0.08);
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+    --max: 780px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--fg);
+    font-size: 16px;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(250,249,247,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 56px;
+  }
+  .nav-name {
+    font-family: var(--serif);
+    font-size: 17px;
+    letter-spacing: 0.01em;
+    color: var(--fg);
+    text-decoration: none;
+  }
+  .nav-links {
+    display: flex; gap: 2rem; list-style: none;
+  }
+  .nav-links a {
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* MAIN LAYOUT */
+  main { max-width: var(--max); margin: 0 auto; padding: 0 2rem; }
+
+  section { padding: 6rem 0 4rem; border-bottom: 1px solid var(--border); }
+  section:last-of-type { border-bottom: none; }
+
+  /* HERO */
+  #hero {
+    padding-top: 10rem;
+    padding-bottom: 6rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero-eyebrow {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 24px; height: 1px;
+    background: var(--accent);
+  }
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.8rem, 6vw, 4.2rem);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: var(--fg);
+    margin-bottom: 1.75rem;
+  }
+  h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .hero-bio {
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--fg-muted);
+    max-width: 540px;
+    margin-bottom: 2.5rem;
+  }
+  .hero-links {
+    display: flex; flex-wrap: wrap; gap: 12px;
+  }
+  .btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13px; font-weight: 500; letter-spacing: 0.04em;
+    padding: 10px 20px;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: all 0.2s;
+    font-family: var(--sans);
+    cursor: pointer; border: none;
+  }
+  .btn-primary {
+    background: var(--fg);
+    color: var(--bg);
+  }
+  .btn-primary:hover { background: var(--accent); }
+  .btn-secondary {
+    background: transparent;
+    color: var(--fg);
+    border: 1px solid var(--border);
+  }
+  .btn-secondary:hover { border-color: var(--fg); }
+
+  .hero-meta {
+    margin-top: 3.5rem;
+    display: flex; gap: 3rem;
+    flex-wrap: wrap;
+  }
+  .hero-stat {}
+  .hero-stat-num {
+    font-family: var(--serif);
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--fg);
+    display: block;
+  }
+  .hero-stat-label {
+    font-size: 12px;
+    color: var(--fg-faint);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* SECTION HEADERS */
+  .section-header {
+    display: flex; align-items: baseline; gap: 1rem;
+    margin-bottom: 3rem;
+  }
+  h2 {
+    font-family: var(--serif);
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--fg);
+  }
+  .section-num {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--fg-faint);
+  }
+
+  /* ABOUT */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+  .about-text p {
+    color: var(--fg-muted);
+    margin-bottom: 1.25rem;
+    font-size: 15.5px;
+  }
+  .about-text p:last-child { margin-bottom: 0; }
+  .about-aside {}
+  .aside-block {
+    margin-bottom: 2.5rem;
+  }
+  .aside-block h3 {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--fg-faint);
+    margin-bottom: 0.75rem;
+  }
+  .aside-block p, .aside-block li {
+    font-size: 14px;
+    color: var(--fg-muted);
+    line-height: 1.7;
+  }
+  .aside-block ul { list-style: none; }
+  .aside-block li::before {
+    content: '—';
+    color: var(--fg-faint);
+    margin-right: 8px;
+    font-size: 12px;
+  }
+
+  /* SKILLS */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .skill-cell {
+    background: var(--bg);
+    padding: 1.75rem 1.5rem;
+  }
+  .skill-cell h3 {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+  .skill-tags {
+    display: flex; flex-wrap: wrap; gap: 6px;
+  }
+  .tag {
+    font-size: 12px;
+    color: var(--fg-muted);
+    background: transparent;
+    border: 1px solid var(--border);
+    padding: 3px 10px;
+    border-radius: 1px;
+    font-weight: 400;
+  }
+
+  /* EXPERIENCE */
+  .timeline { }
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 2rem;
+    padding: 2.5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .timeline-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .timeline-meta {
+    padding-top: 4px;
+  }
+  .timeline-date {
+    font-size: 12px;
+    color: var(--fg-faint);
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    line-height: 1.5;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .timeline-loc {
+    font-size: 12px;
+    color: var(--fg-faint);
+  }
+  .timeline-content h3 {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--fg);
+    margin-bottom: 2px;
+  }
+  .timeline-company {
+    font-size: 13px;
+    color: var(--accent);
+    font-weight: 400;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+  .timeline-content ul {
+    list-style: none;
+    padding: 0;
+  }
+  .timeline-content li {
+    font-size: 14px;
+    color: var(--fg-muted);
+    line-height: 1.7;
+    margin-bottom: 0.5rem;
+    padding-left: 16px;
+    position: relative;
+  }
+  .timeline-content li::before {
+    content: '·';
+    position: absolute; left: 4px;
+    color: var(--fg-faint);
+  }
+
+  /* PROJECTS */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .project-card {
+    background: var(--bg);
+    padding: 2rem;
+    transition: background 0.2s;
+  }
+  .project-card:hover { background: var(--accent-light); }
+  .project-card h3 {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--fg);
+    margin-bottom: 0.5rem;
+  }
+  .project-desc {
+    font-size: 13.5px;
+    color: var(--fg-muted);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+  .project-tags {
+    display: flex; flex-wrap: wrap; gap: 5px;
+  }
+  .project-tag {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-light);
+    padding: 2px 8px;
+    border-radius: 1px;
+  }
+  .project-date {
+    font-size: 11px;
+    color: var(--fg-faint);
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .project-github {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent-light);
+    padding-bottom: 1px;
+    transition: border-color 0.15s;
+  }
+  .project-github:hover { border-color: var(--accent); }
+
+  /* PRESENTATIONS */
+  .presentations-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  .pres-card {
+    border: 1px solid var(--border);
+    padding: 1.75rem;
+    transition: border-color 0.2s;
+  }
+  .pres-card:hover { border-color: rgba(0,0,0,0.2); }
+  .pres-venue {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.6rem;
+    display: block;
+  }
+  .pres-card h3 {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--fg);
+    margin-bottom: 0.6rem;
+    line-height: 1.4;
+  }
+  .pres-card p {
+    font-size: 13px;
+    color: var(--fg-muted);
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+  }
+  .pres-links {
+    display: flex; gap: 10px; flex-wrap: wrap;
+  }
+  .pres-link {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--fg);
+    text-decoration: none;
+    border: 1px solid var(--border);
+    padding: 5px 12px;
+    border-radius: 1px;
+    transition: all 0.15s;
+    display: inline-flex; align-items: center; gap: 4px;
+  }
+  .pres-link:hover { border-color: var(--fg); }
+  .blog-intro {
+    font-size: 15.5px;
+    color: var(--fg-muted);
+    max-width: 480px;
+    margin-bottom: 2.5rem;
+  }
+  .blog-posts {}
+  .blog-post {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 2rem;
+    padding: 1.75rem 0;
+    border-bottom: 1px solid var(--border);
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.15s;
+  }
+  .blog-post:first-child { border-top: 1px solid var(--border); }
+  .blog-post:hover .post-title { color: var(--accent); }
+  .post-date {
+    font-size: 12px;
+    color: var(--fg-faint);
+    font-family: var(--serif);
+    font-style: italic;
+    padding-top: 3px;
+    line-height: 1.4;
+  }
+  .post-title {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--fg);
+    margin-bottom: 4px;
+    transition: color 0.15s;
+  }
+  .post-excerpt {
+    font-size: 13.5px;
+    color: var(--fg-muted);
+  }
+  .blog-cta {
+    margin-top: 2rem;
+    font-size: 13px;
+    color: var(--fg-muted);
+  }
+  .blog-cta a { color: var(--accent); text-decoration: none; }
+
+  /* EDUCATION */
+  .edu-block {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 2rem;
+  }
+  .edu-year {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--fg-faint);
+    padding-top: 4px;
+  }
+  .edu-content h3 {
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--fg);
+    margin-bottom: 4px;
+  }
+  .edu-detail {
+    font-size: 14px;
+    color: var(--fg-muted);
+    margin-bottom: 0.5rem;
+  }
+  .edu-awards {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    margin-top: 1rem;
+  }
+  .award-badge {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--fg);
+    border: 1px solid var(--border);
+    padding: 4px 10px;
+    border-radius: 1px;
+    letter-spacing: 0.03em;
+  }
+  .course-list {
+    margin-top: 1.25rem;
+    display: flex; flex-wrap: wrap; gap: 6px;
+  }
+
+  /* CONTACT */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+  .contact-text h3 {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    color: var(--fg);
+  }
+  .contact-text p {
+    font-size: 15px;
+    color: var(--fg-muted);
+    line-height: 1.8;
+  }
+  .contact-links {
+    display: flex; flex-direction: column; gap: 1rem;
+    padding-top: 1rem;
+  }
+  .contact-link {
+    display: flex; align-items: center; gap: 12px;
+    font-size: 14px;
+    color: var(--fg-muted);
+    text-decoration: none;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    transition: color 0.15s;
+  }
+  .contact-link:first-child { border-top: 1px solid var(--border); }
+  .contact-link:hover { color: var(--accent); }
+  .contact-link-icon {
+    width: 32px; height: 32px;
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+    transition: border-color 0.15s;
+  }
+  .contact-link:hover .contact-link-icon { border-color: var(--accent); }
+  .contact-link-label { font-weight: 500; color: var(--fg); margin-right: 4px; }
+
+  /* FOOTER */
+  footer {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 2.5rem 2rem;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 12px;
+    color: var(--fg-faint);
+    border-top: 1px solid var(--border);
+  }
+
+  /* MOBILE */
+  @media (max-width: 640px) {
+    nav { padding: 0 1.25rem; }
+    .nav-links { display: none; }
+    main { padding: 0 1.25rem; }
+    h1 { font-size: 2.4rem; }
+    .about-grid, .projects-grid, .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .timeline-item, .edu-block { grid-template-columns: 1fr; gap: 0.5rem; }
+    .hero-meta { gap: 2rem; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-name" href="#hero">Durga Pranati Duvvuri</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#presentations">Talks</a></li>
+    <li><a href="#blog">Writing</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-eyebrow">CS + ML + Finance</div>
+    <h1>Building at the<br>intersection of<br><em>intelligence & markets</em></h1>
+    <p class="hero-bio">
+      Georgia Tech CS student (BS/MS) specializing in machine learning, NLP, and quantitative finance.
+      Currently interning at BlackRock on the Aladdin platform. Previously at Freddie Mac.
+    </p>
+    <div class="hero-links">
+      <a class="btn btn-primary" href="#contact">Get in touch</a>
+      <a class="btn btn-secondary" href="Resume_PD.pdf" target="_blank" download>Download résumé ↓</a>
+      <a class="btn btn-secondary" href="https://github.com/dpd006" target="_blank">GitHub ↗</a>
+      <a class="btn btn-secondary" href="https://linkedin.com/in/durga-pranati-duvvuri/" target="_blank">LinkedIn ↗</a>
+    </div>
+    <div class="hero-meta">
+      <div class="hero-stat">
+        <span class="hero-stat-num">3.78</span>
+        <span class="hero-stat-label">GPA at Georgia Tech</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">5+</span>
+        <span class="hero-stat-label">Languages spoken</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">2nd</span>
+        <span class="hero-stat-label">IEEE EMBS BHI 2025</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2>About</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          I'm a CS student at Georgia Tech pursuing a combined BS/MS, with threads in Modeling & Simulation and Intelligence. My work sits at the intersection of machine learning, NLP, and quantitative finance.
+        </p>
+        <p>
+          I build things that matter — from AI-driven risk frameworks for enterprise systems, to Text-to-SQL pipelines over financial databases, to clinical NLP tools for EHR data. I care deeply about the rigor behind the code and the real-world impact of the systems I build.
+        </p>
+        <p>
+          Outside of research and internships, I'm active in the GT Trading Club, Student Finance Society, and Women@College of Computing. I speak English, Telugu, Hindi, Tamil, and French.
+        </p>
+      </div>
+      <div class="about-aside">
+        <div class="aside-block">
+          <h3>Currently</h3>
+          <ul>
+            <li>Technology Intern @ BlackRock (Aladdin)</li>
+            <li>Research Assistant @ BIO-MIB Lab, GT</li>
+          </ul>
+        </div>
+        <div class="aside-block">
+          <h3>Interests</h3>
+          <ul>
+            <li>Quantitative modeling & time-series</li>
+            <li>NLP for financial text</li>
+            <li>Risk analytics & LLM applications</li>
+            <li>Board games & trading competitions</li>
+          </ul>
+        </div>
+        <div class="aside-block">
+          <h3>Certifications</h3>
+          <ul>
+            <li>Bloomberg Market Concepts</li>
+            <li>Bloomberg Finance Fundamentals</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2>Skills</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-cell">
+        <h3>Programming</h3>
+        <div class="skill-tags">
+          <span class="tag">Python</span><span class="tag">C++</span><span class="tag">Java</span>
+          <span class="tag">SQL</span><span class="tag">C</span><span class="tag">UNIX</span>
+        </div>
+      </div>
+      <div class="skill-cell">
+        <h3>ML / Quant</h3>
+        <div class="skill-tags">
+          <span class="tag">PyTorch</span><span class="tag">TensorFlow</span><span class="tag">Scikit-learn</span>
+          <span class="tag">Transformers</span><span class="tag">NLP</span><span class="tag">Hugging Face</span>
+          <span class="tag">Time-Series</span><span class="tag">Monte Carlo</span><span class="tag">RL</span>
+          <span class="tag">Embeddings</span>
+        </div>
+      </div>
+      <div class="skill-cell">
+        <h3>Finance / Trading</h3>
+        <div class="skill-tags">
+          <span class="tag">Bloomberg Terminal</span><span class="tag">QuantConnect</span>
+          <span class="tag">Aladdin</span><span class="tag">Risk Analytics</span>
+          <span class="tag">Backtesting</span><span class="tag">Regime Analysis</span>
+        </div>
+      </div>
+      <div class="skill-cell">
+        <h3>Frameworks</h3>
+        <div class="skill-tags">
+          <span class="tag">FastAPI</span><span class="tag">React.js</span><span class="tag">Django</span>
+          <span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">Git</span>
+          <span class="tag">Excel/VBA</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2>Experience</h2>
+    </div>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-meta">
+          <span class="timeline-date">May 2026 –<br>Aug 2026</span>
+          <span class="timeline-loc">Atlanta, GA</span>
+        </div>
+        <div class="timeline-content">
+          <h3>Technology Intern</h3>
+          <span class="timeline-company">BlackRock</span>
+          <ul>
+            <li>Supporting Aladdin risk analytics platform serving 200+ institutional clients and 100,000+ end users globally across portfolio management, trading, and compliance workflows.</li>
+            <li>Applying SQL, Python, and UNIX to ensure accuracy of large analytical datasets and automate data validation for investment operations across fixed income, equity, and derivatives.</li>
+            <li>Collaborating with engineering and client teams to improve operational reliability of risk reporting pipelines.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-meta">
+          <span class="timeline-date">Aug 2025 –<br>Present</span>
+          <span class="timeline-loc">Atlanta, GA</span>
+        </div>
+        <div class="timeline-content">
+          <h3>Research Assistant</h3>
+          <span class="timeline-company">BIO-MIB Lab, Georgia Tech</span>
+          <ul>
+            <li>Built MIST, a unified Text-to-SQL + LLM summarization pipeline over MIMIC-IV EHR data generating structured patient-level clinical timelines from multi-table records.</li>
+            <li>Evaluated pipeline with ROUGE and BERTScore; ICU Stays and Admissions achieved BERTScore F1 > 0.81.</li>
+            <li>Presented at GT STAR AI and UROP Symposiums; findings on hallucination reduction in clinical LLMs being prepared for publication.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-meta">
+          <span class="timeline-date">May 2025 –<br>Jul 2025</span>
+          <span class="timeline-loc">McLean, VA</span>
+        </div>
+        <div class="timeline-content">
+          <h3>Operational Risk Intern</h3>
+          <span class="timeline-company">Freddie Mac — Single Family Division</span>
+          <ul>
+            <li>Developed AI-driven operational risk frameworks quantifying exposure across 70+ enterprise processes using structured model outputs and scenario analysis.</li>
+            <li>Designed internal use cases for FredAI (Freddie Mac's in-house LLM) including automated risk narrative generation and policy Q&A workflows.</li>
+            <li>Automated portfolio risk reporting pipelines, reducing manual consolidation overhead; earned 2nd place in company-wide intern case competition.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-meta">
+          <span class="timeline-date">Jan 2025 –<br>May 2026</span>
+          <span class="timeline-loc">Atlanta, GA</span>
+        </div>
+        <div class="timeline-content">
+          <h3>VIP Researcher — AI for Finance</h3>
+          <span class="timeline-company">Georgia Tech (ML + NLP)</span>
+          <ul>
+            <li>Built Text-to-SQL pipelines over heterogeneous financial schemas (IMF, World Bank, SEC) enabling natural language querying of macro and firm-level time-series data.</li>
+            <li>Designed custom query complexity scoring combining NL and SQL features on a normalized 0–100 scale.</li>
+            <li>Benchmarked 7 LLMs (GPT-4o Mini, Gemini 2.0 Flash, DeepSeek V3, LLaMA 3.3, Qwen 2.5) on ~500 financial queries; improved signal classification by 12%.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-meta">
+          <span class="timeline-date">Jan 2025 –<br>May 2025</span>
+          <span class="timeline-loc">Atlanta, GA</span>
+        </div>
+        <div class="timeline-content">
+          <h3>Teaching Assistant — CS 2340</h3>
+          <span class="timeline-company">Georgia Institute of Technology</span>
+          <ul>
+            <li>Mentored 20 students on OOP, software architecture, and Agile principles across semester-long industry-style projects; each group built and evaluated a distinct software system.</li>
+            <li>Reviewed and debugged large codebases; led coding labs on modular design, testing, and software design documentation including SSDs, class diagrams, and sequence diagrams.</li>
+            <li>Provided structured design feedback across all project milestones, guiding teams through architecture decisions and iterative delivery cycles.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-meta">
+          <span class="timeline-date">Sep 2024 –<br>Feb 2025</span>
+          <span class="timeline-loc">Santa Monica, CA</span>
+        </div>
+        <div class="timeline-content">
+          <h3>Business Analyst Intern</h3>
+          <span class="timeline-company">Living Full Out</span>
+          <ul>
+            <li>Built data pipelines across 150+ Excel datasets tracking 2,000+ clients; improved engagement conversion rates by 17% through predictive analytics.</li>
+            <li>Supported operational analytics and coordinated logistics for 300+ guest workflows on nationally syndicated radio show.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-meta">
+          <span class="timeline-date">Aug 2023 –<br>Aug 2024</span>
+          <span class="timeline-loc">Atlanta, GA</span>
+        </div>
+        <div class="timeline-content">
+          <h3>Full-Stack Developer Intern</h3>
+          <span class="timeline-company">iQuadra Information Services</span>
+          <ul>
+            <li>Built BugSprint, a React + Django full-stack bug tracking system for real-time workflow management.</li>
+            <li>Improved backend performance and system throughput by 30% through API and database optimization.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2>Projects</h2>
+    </div>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <span class="project-date">Aug 2025 – Present</span>
+        <h3>Market Pulse: SOFR Forecasting</h3>
+        <p class="project-desc">Time-series forecasting pipelines for SOFR rate movements using statistical and ML models. Built regime-aware rolling-window framework to quantify forecast degradation and macro-driven structural breaks.</p>
+        <div class="project-tags">
+          <span class="project-tag">Time-Series</span>
+          <span class="project-tag">Regime Analysis</span>
+          <span class="project-tag">Forecasting</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <span class="project-date">Jan 2025 – May 2026</span>
+        <h3>Stock Similarity via Representation Learning</h3>
+        <p class="project-desc">Benchmarked 8 methods (PCA, ICA, VAE, PatchTST, etc.) on stock return time-series to evaluate how embedding choice affects nearest-neighbor similarity between securities.</p>
+        <div class="project-tags">
+          <span class="project-tag">PatchTST</span>
+          <span class="project-tag">Embeddings</span>
+          <span class="project-tag">Transformers</span>
+        </div>
+        <a class="project-github" href="https://github.com/dpd006/vip-stock-time-series-similarity" target="_blank">View on GitHub ↗</a>
+      </div>
+
+      <div class="project-card">
+        <span class="project-date">2025</span>
+        <h3>MIST — Clinical Timeline Pipeline</h3>
+        <p class="project-desc">Unified Text-to-SQL + LLM summarization system over MIMIC-IV EHR data generating structured patient-level clinical timelines. BERTScore F1 > 0.81 on ICU Stays and Admissions tables.</p>
+        <div class="project-tags">
+          <span class="project-tag">NLP</span>
+          <span class="project-tag">LLM</span>
+          <span class="project-tag">Text-to-SQL</span>
+        </div>
+        <a class="project-github" href="https://github.com/dpd006/ehr_summarization_BioMibLab" target="_blank">View on GitHub ↗</a>
+      </div>
+
+      <div class="project-card">
+        <span class="project-date">Jan 2025 – May 2026</span>
+        <h3>Text-to-SQL for Financial Data</h3>
+        <p class="project-desc">NL querying pipelines over heterogeneous financial schemas (IMF, World Bank, SEC). Benchmarked 7 LLMs on ~500 templated queries with a custom complexity scoring system (0–100 scale).</p>
+        <div class="project-tags">
+          <span class="project-tag">Text-to-SQL</span>
+          <span class="project-tag">LLM Benchmarking</span>
+          <span class="project-tag">NLP</span>
+        </div>
+        <a class="project-github" href="https://github.com/dpd006/vip-text2sql-prana" target="_blank">View on GitHub ↗</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PRESENTATIONS -->
+  <section id="presentations">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2>Presentations</h2>
+    </div>
+    <div class="presentations-grid">
+
+      <div class="pres-card">
+        <span class="pres-venue">GT STAR AI &amp; UROP Symposiums · 2025</span>
+        <h3>MIST: MIMIC Interactive Summarization Tool for Structured EHR Representation</h3>
+        <p>Text-to-SQL + LLM summarization pipeline over MIMIC-IV EHR data. Covers methodology, BERTScore evaluation results, and findings on hallucination reduction in clinical LLM outputs.</p>
+        <div class="pres-links">
+          <a class="pres-link" href="STARAI5-12Pres.pptx" download>↓ Download slides</a>
+          <a class="pres-link" href="https://github.com/dpd006/ehr_summarization_BioMibLab" target="_blank">GitHub ↗</a>
+        </div>
+      </div>
+
+      <div class="pres-card">
+        <span class="pres-venue">GT VIP Research · 2025–2026</span>
+        <h3>Scaling Text-to-SQL for Financial Data</h3>
+        <p>NLP pipelines over heterogeneous financial schemas (IMF, World Bank, SEC). Covers query templatization, complexity scoring, and LLM benchmarking across ~500 financial queries.</p>
+        <div class="pres-links">
+          <a class="pres-link" href="Duvvuri_ScalingTextTo.pptx" download>↓ Download slides</a>
+          <a class="pres-link" href="https://github.com/dpd006/vip-text2sql-prana" target="_blank">GitHub ↗</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BLOG -->
+  <section id="blog">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <h2>Writing</h2>
+    </div>
+    <p class="blog-intro">Occasional writing on machine learning, quantitative finance, and things I find interesting while building.</p>
+    <div class="blog-posts">
+      <a class="blog-post" href="#">
+        <div class="post-date">Coming<br>soon</div>
+        <div>
+          <p class="post-title">On building Text-to-SQL pipelines for messy financial schemas</p>
+          <p class="post-excerpt">What I learned from building NL query systems over IMF, World Bank, and SEC data — and why financial schemas are uniquely hard.</p>
+        </div>
+      </a>
+      <a class="blog-post" href="#">
+        <div class="post-date">Coming<br>soon</div>
+        <div>
+          <p class="post-title">SOFR after LIBOR: a practitioner's look at rate forecasting</p>
+          <p class="post-excerpt">How macro-driven structural breaks make SOFR forecasting more than a time-series problem.</p>
+        </div>
+      </a>
+      <a class="blog-post" href="#">
+        <div class="post-date">Coming<br>soon</div>
+        <div>
+          <p class="post-title">Hallucination in clinical LLMs: what the numbers actually say</p>
+          <p class="post-excerpt">Findings from the MIST pipeline on how query-guided summarization affects hallucination rates in EHR-grounded outputs.</p>
+        </div>
+      </a>
+    </div>
+    <p class="blog-cta">Posts coming soon. In the meantime, find my research presentations and work on <a href="https://github.com/dpd006" target="_blank">GitHub ↗</a></p>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="section-header">
+      <span class="section-num">07</span>
+      <h2>Education</h2>
+    </div>
+    <div class="edu-block">
+      <div class="edu-year">2023 –<br>2027</div>
+      <div class="edu-content">
+        <h3>Georgia Institute of Technology</h3>
+        <p class="edu-detail">BS/MS Computer Science · Threads: Modeling/Simulation & Intelligence · Minor: FinTech · <strong>GPA 3.78</strong></p>
+        <p class="edu-detail">M.S. Computer Science · Expected Dec 2027 · Exploring MFE programs</p>
+        <div class="edu-awards">
+          <span class="award-badge">Dean's List — All Semesters</span>
+          <span class="award-badge">Faculty Honors</span>
+          <span class="award-badge">IEEE EMBS BHI 2025 — 2nd Place</span>
+        </div>
+        <div class="course-list">
+          <span class="tag">Machine Learning</span>
+          <span class="tag">Deep Learning</span>
+          <span class="tag">NLP</span>
+          <span class="tag">Graduate Algorithms</span>
+          <span class="tag">Data & Visual Analytics</span>
+          <span class="tag">Database Systems</span>
+          <span class="tag">Numerical Analysis</span>
+          <span class="tag">Statistics & Applications</span>
+          <span class="tag">Financial Markets & Trading</span>
+          <span class="tag">Finance & Investments</span>
+          <span class="tag">FinTech & Crypto Tokens</span>
+          <span class="tag">Linear Algebra</span>
+          <span class="tag">Differential Equations</span>
+          <span class="tag">Data Structures</span>
+          <span class="tag">Applied Combinatorics</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-header">
+      <span class="section-num">08</span>
+      <h2>Contact</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-text">
+        <h3>Let's connect.</h3>
+        <p>
+          I'm always happy to chat about research, quant finance, internship opportunities, or anything at the intersection of ML and markets. Reach out anytime.
+        </p>
+      </div>
+      <div class="contact-links">
+        <a class="contact-link" href="mailto:dduvvuri6@gatech.edu">
+          <div class="contact-link-icon">✉</div>
+          <div>
+            <span class="contact-link-label">Email</span>
+            <span>dduvvuri6@gatech.edu</span>
+          </div>
+        </a>
+        <a class="contact-link" href="https://linkedin.com/in/durga-pranati-duvvuri/" target="_blank">
+          <div class="contact-link-icon">in</div>
+          <div>
+            <span class="contact-link-label">LinkedIn</span>
+            <span>durga-pranati-duvvuri</span>
+          </div>
+        </a>
+        <a class="contact-link" href="https://github.com/dpd006" target="_blank">
+          <div class="contact-link-icon">⌥</div>
+          <div>
+            <span class="contact-link-label">GitHub</span>
+            <span>github.com/dpd006</span>
+          </div>
+        </a>
+        <a class="contact-link" href="tel:4704199486">
+          <div class="contact-link-icon">✆</div>
+          <div>
+            <span class="contact-link-label">Phone</span>
+            <span>470-419-9486</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <span>© 2026 Durga Pranati Duvvuri</span>
+  <span>Atlanta, GA · Georgia Tech CS/MS</span>
+</footer>
+
+</body>
+</html>
